@@ -194,8 +194,8 @@ assert(
 const triggerItems = defaultItems.filter(item => item.parent === 'trigger')
 assertEqual(
   triggerItems[0].id,
-  'trigger.toggle',
-  'menu lists Toggle first under Trigger'
+  'trigger.appearance',
+  'menu lists Appearance first under Trigger'
 )
 assertEqual(
   defaultById['trigger.emoji'].action,
@@ -414,7 +414,7 @@ assertDeepEqual(
 )
 const triggerIds = triggerItems.map(item => item.id)
 const appearanceLabels = ['Animations', 'Menu Bar', 'Window Gaps', '1-Window Ratio', 'Workspace Layout', 'Herdr Theme Sync']
-assertEqual(triggerIds.indexOf('trigger.appearance'), triggerIds.indexOf('trigger.toggle') + 1, 'menu places Appearance right after Toggle')
+assertEqual(triggerIds.indexOf('trigger.toggle'), triggerIds.indexOf('trigger.appearance') + 1, 'menu places Toggle right after Appearance')
 assertDeepEqual(
   defaultItems.filter(item => item.parent === 'trigger.appearance').map(item => item.label),
   appearanceLabels,
