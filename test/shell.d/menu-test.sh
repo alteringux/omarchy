@@ -412,8 +412,13 @@ assertDeepEqual(
   ['Top Bar', 'Bottom Bar', 'Left Bar', 'Right Bar'],
   'menu names each position after the bar'
 )
+assertDeepEqual(
+  defaultItems.filter(item => item.parent === 'trigger.appearance.window-corners').map(item => [item.label, item.action]),
+  [['Theme Corners', 'omarchy-hyprland-corners theme'], ['Sharp Corners', 'omarchy-hyprland-corners sharp'], ['Rounded Corners', 'omarchy-hyprland-corners rounded']],
+  'menu picks window corners from Appearance > Window Corners'
+)
 const triggerIds = triggerItems.map(item => item.id)
-const appearanceLabels = ['Animations', 'Menu Bar', 'Window Gaps', '1-Window Ratio', 'Workspace Layout', 'Herdr Theme Sync']
+const appearanceLabels = ['Animations', 'Menu Bar', 'Window Gaps', 'Window Corners', '1-Window Ratio', 'Workspace Layout', 'Herdr Theme Sync']
 assertEqual(triggerIds.indexOf('trigger.toggle'), triggerIds.indexOf('trigger.appearance') + 1, 'menu places Toggle right after Appearance')
 assertDeepEqual(
   defaultItems.filter(item => item.parent === 'trigger.appearance').map(item => item.label),
